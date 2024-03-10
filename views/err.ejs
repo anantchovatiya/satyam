@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        
+        .error-container {
+            text-align: center;
+        }
+        
+        .error-image {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #ff0000;
+        }
+        
+        p {
+            color: #555;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+        
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="error-container">
+        <img src="err.png" alt="Error Image" class="error-image">
+        <h1>Error: Invalid Input</h1>
+        <p>Oops! It seems like there was an issue with your input. Please check and try again.</p>
+        <form action="/back" method="post">
+            <button type="submit">Go Back</button>
+        </form>
+    </div>
+</body>
+
+</html>
