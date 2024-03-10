@@ -54,12 +54,13 @@ function generateBill() {
     const customerName = document.getElementById('cname').value;
     const deliveryAddress = document.getElementById('add').value;
     const discount = document.getElementById('discount').value;
-
+    const dealercode = document.getElementById('discount').value;
     const billContainer = document.getElementById('bill-content');
     billContainer.innerHTML = '';
     const customerDetails = document.createElement('div');
     customerDetails.className = 'cdetail';
     customerDetails.innerHTML = `
+        <p><strong>Dealer Code:</strong> ${dealercode}</p>
         <p><strong>Customer Name:</strong> ${customerName}</p>
         <p><strong>Delivery Address:</strong> ${deliveryAddress}</p>
     `;
