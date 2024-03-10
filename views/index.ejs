@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+    <div class="nav">
+        <p class="cname">SATYAM ENGINEERING WORKS</p>
+    </div>
+    <div id="product-list-container">
+        <div id="product-list">
+            <!-- Product Cards will be dynamically added here -->
+        </div>
+
+        <div id="bill-container">
+            <h2>Billing: </h2>
+            <div class="cinfo">
+                <label for="promo">Dealer Code:</label> <input type="text" id="discount" value="<%=udis%>" readonly> <br>
+                <label for="cname">Name :</label> <input type="text" id="cname"> <br><label for="add">Delivery Address:</label> <textarea id="add" name="add"></textarea><br>
+            </div>
+            <div class="bill">
+                <span id="promo"></span>
+                <div id="bill-content"></div>
+                <div class="btn">
+                    <button onclick="generateBill()" class="genbtn">Generate Bill</button>
+                    <button onclick="sendBill()" class="genbtn">Send IT!!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
