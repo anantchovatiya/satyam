@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification - SATYAM ENGINEERING WORKS</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .container {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        
+        p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        #statusMessage {
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>SATYAM ENGINEERING WORKS</h1>
+        <h2>Dealer Code Verification</h2>
+        <p>A Dealer code has been sent from the Owner. Please enter it below:</p>
+        <form action="/dcode" method="post">
+            <input type="text" id="otpInput" name="ucode" placeholder="Enter Dealer Code">
+            <button type="submit">Verify Code</button>
+        </form>
+        <p id="statusMessage"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
