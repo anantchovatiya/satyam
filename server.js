@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const path = require("path");
 const app = express();
 const fs = require('fs');
+const { render } = require('ejs');
 const port = process.env.PORT || 3000;
 const filePath = './public/discount.txt';
 app.use(bodyParser.json());
@@ -22,7 +23,7 @@ const transporter = nodemailer.createTransport({
 // Serve static files
 app.use(express.static('public'));
 
-app.get("/", (req, res) => {
+app.get("/", async(req, res) => {
         res.sendFile(path.join(__dirname, "/public/main.html"));
     })
     // Express route to send bill via Gmail
@@ -40,15 +41,17 @@ app.post('/send-bill', (req, res) => {
         text: billContent,
     };
 
-    // Send email
     transporter.sendMail(mailOptions, function(error, info) {
         if (error) {
-            res.send("Enter the Valid E-mail Address");
+            console.error("Error sending email:", error);
+            return res.status(500).json({ message: "Failed to send email." });
         } else {
-            res.send('Thank You!, Email is successfully sent to the Company name');
+            console.log("Email sent successfully:", info.response);
+            res.status(200).json({ success: true, message: "Email sent successfully." });
         }
     });
 });
+
 let discounts;
 app.post("/dcode", (req, res) => {
     let data = req.body;
@@ -78,6 +81,9 @@ app.post("/dcode", (req, res) => {
 app.post("/back", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/main.html"));
 })
+app.get('/success', (req, res) => {
+    res.render('success');
+});
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
