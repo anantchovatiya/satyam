@@ -51,6 +51,8 @@ fetch("./discount.txt")
 
 
 function generateBill() {
+    const bah = document.getElementById("bah");
+    bah.style.display = "none";
     const customerName = document.getElementById('cname').value;
     const deliveryAddress = document.getElementById('add').value;
     const discount = document.getElementById('discount').value;
@@ -107,7 +109,7 @@ function generateBill() {
         <p><strong>CGST:</strong> $${cgst.toFixed(2)}</p>
         <p><strong>SGST:</strong> $${sgst.toFixed(2)}</p>
         <p><strong>Discount:</strong> $${dispercentage * subtotal}</p>
-        <p><strong>Main Total:</strong> $${mainTotal.toFixed(2)}</p>
+        <p class="mtot"><strong>Main Total:</strong> $${mainTotal.toFixed(2)}</p>
     `;
     billContainer.appendChild(summary);
 }
@@ -119,7 +121,10 @@ function sendBill() {
     if (!ownerEmail) return;
 
     const billContent = document.getElementById('bill-content').innerText;
-    const userEmail = prompt("Enter your Email")
+    const userEmail = prompt("Enter your Email");
+
+    if (!userEmail) return;
+
     fetch('/send-bill', {
             method: 'POST',
             headers: {
@@ -130,9 +135,20 @@ function sendBill() {
                 billContent,
             }),
         })
-        .then(response => response.json())
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Failed to send bill: ' + response.statusText);
+            }
+        })
         .then(data => {
-            alert(data.message);
+            if (data.success) {
+                // Redirect to the success page or handle it accordingly
+                window.location.replace('/success');
+            } else {
+                alert(data.message); // Show any error messages from the server
+            }
         })
         .catch(error => {
             console.error('Error:', error);
