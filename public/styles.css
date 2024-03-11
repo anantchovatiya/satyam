@@ -168,7 +168,8 @@ body {
         width: 85%;
         /* Make the billing container full-width on small screens */
         margin: 10px;
-        margin-left: -86px;
+        margin-left: 11px;
+        margin-top: -86px;
         /* Adjust margin for smaller screens */
     }
     .cinfo input,
