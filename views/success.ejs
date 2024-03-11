@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e6f7e9;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        
+        .success-container {
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .success-image {
+            width: 250px;
+            height: 200px;
+            margin-bottom: -35px;
+        }
+        
+        h1 {
+            color: #4caf50;
+        }
+        
+        p {
+            color: #555;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+        
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        /* Media Query for smaller screens */
+        
+        @media only screen and (max-width: 600px) {
+            .success-container {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="success-container">
+        <img src="/mail.gif" alt="Success Image" class="success-image">
+        <h1>Order Successfully Sent to SATYAM ENGINEERING WORKS</h1>
+        <p>Thank you for your order! We have received your request and will process it shortly.</p>
+        <form action="/back" method="post">
+            <button type="submit">Back to Home Page</button>
+        </form>
+
+    </div>
+</body>
+
+</html>
