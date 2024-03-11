@@ -43,6 +43,11 @@ body {
     letter-spacing: 20px;
 }
 
+#promo {
+    color: green;
+    font-weight: 600;
+}
+
 #product-list-container {
     display: flex;
     justify-content: space-between;
@@ -72,7 +77,6 @@ body {
 
 .product-card {
     background-color: #dddcdc;
-    border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
     width: 200px;
@@ -84,7 +88,7 @@ body {
 
 #bill-container {
     background-color: #dddcdc;
-    border: 1px solid #ddd;
+    box-shadow: 2px 2px 10px black;
     border-radius: 8px;
     padding: 20px;
     width: 20%;
@@ -110,9 +114,24 @@ body {
 }
 
 #bill-content {
-    border-top: 1px solid #ddd;
     margin-top: 10px;
     padding-top: 10px;
+}
+
+.bill {
+    border-radius: 10px;
+    padding: 3px;
+    background-color: #ffffff;
+}
+
+.bcon {
+    font-weight: 700;
+    background-color: #c2c2c2;
+}
+
+.mtot {
+    font-size: 20px;
+    font-weight: 800px;
 }
 
 .btn {
@@ -130,6 +149,51 @@ body {
     cursor: pointer;
 }
 
+.menu {
+    margin-top: -18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu img {
+    display: none;
+    height: 20px;
+    width: 25px;
+}
+
+input[type="number"] {
+    width: 100px;
+    /* Set a specific width */
+    height: 25px;
+    padding: 8px;
+    /* Add padding for better appearance */
+    font-size: 16px;
+    /* Adjust font size */
+    border: 1px solid #ccc;
+    /* Add a border */
+    border-radius: 4px;
+    /* Add border-radius for rounded corners */
+    box-sizing: border-box;
+    /* Include padding and border in the total width */
+}
+
+
+/* Optional: Style the increment and decrement buttons (for browsers that support) */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    /* Remove default appearance */
+    margin: 0;
+    /* Remove default margin */
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    /* Firefox */
+}
+
 
 /* Responsive styles */
 
@@ -139,12 +203,9 @@ body {
         /* Adjust alignment for smaller screens */
     }
     #nav {
+        height: 100px;
         width: 100%;
         /* Make the navigation bar full-width on small screens */
-    }
-    .cname {
-        letter-spacing: 10px;
-        /* Reduce letter-spacing for smaller screens */
     }
     #product-list-container {
         flex-direction: column;
@@ -169,7 +230,7 @@ body {
         /* Make the billing container full-width on small screens */
         margin: 10px;
         margin-left: 11px;
-        margin-top: -86px;
+        margin-top: -40px;
         /* Adjust margin for smaller screens */
     }
     .cinfo input,
@@ -177,5 +238,12 @@ body {
     .cinfo button {
         width: calc(100% - 16px);
         /* Adjust input and button width for smaller screens */
+    }
+    .menu img {
+        display: block;
+    }
+    .cname {
+        letter-spacing: 6px;
+        font-size: 1rem;
     }
 }
