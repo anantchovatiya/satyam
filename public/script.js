@@ -13,7 +13,6 @@ fetch(url)
             return { id: parseInt(id), name, price: parseFloat(price) };
         });
 
-        console.log(products);
         const productList = document.getElementById('product-list');
         products.forEach(product => {
             const card = document.createElement('div');
@@ -117,14 +116,12 @@ function generateBill() {
 
 
 function sendBill() {
-    const ownerEmail = 'anantchovatiya@gmail.com';
-    if (!ownerEmail) return;
 
     const billContent = document.getElementById('bill-content').innerText;
     const userEmail = prompt("Enter your Email");
 
     if (!userEmail) return;
-
+    document.getElementById("loading-container").style.display = "block";
     fetch('/send-bill', {
             method: 'POST',
             headers: {
