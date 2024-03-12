@@ -1,282 +1,53 @@
-/* Reset some default styles */
+<!DOCTYPE html>
+<html lang="en">
 
-body,
-h1,
-h2,
-p,
-ul,
-li {
-    margin: 0;
-    padding: 0;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SATYAM ENGINEERING WORKS</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
 
+<body>
 
-/* Set up a simple and clean font */
+    <div class="nav">
+        <p class="cname">SATYAM ENGINEERING WORKS</p>
+    </div>
+    <div id="product-list-container">
+        <div id="product-list">
+            <!-- Product Cards will be dynamically added here -->
+        </div>
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-}
+        <div id="bill-container">
+            <div class="menu">
+                <img src="menu.png" alt="">
+            </div>
+            <h2>Billing: </h2>
 
-
-/* Container styles */
-
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #f5f5f5;
-}
-
-.nav {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    width: 98.7%;
-}
-
-.cname {
-    font-size: 1.8rem;
-    font-weight: bold;
-    letter-spacing: 20px;
-}
-
-#promo {
-    color: green;
-    font-weight: 600;
-}
-
-#product-list-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 100%;
-    margin-top: 20px;
-    flex-wrap: nowrap;
-}
+            <div class="cinfo">
+                <label for="promo">Dealer Code:</label> <input type="text" id="discount" value="<%=udis%>" readonly> <br>
+                <label for="cname">Name :</label> <input type="text" id="cname"> <br><label for="add">Delivery Address:</label> <textarea id="add" name="add"></textarea><br>
+            </div>
+            <div class="bill">
+                <p id="bah">Your bill will be appear here..</p>
+                <span id="promo"></span>
+                <div id="bill-content"></div>
+            </div>
+            <div id="loading-container">
+                <div id="loading"></div>
+                <p>Loading...</p>
+            </div>
+            <div class="btn">
+                <button onclick="generateBill()" class="genbtn">Generate Bill</button>
+                <button onclick="sendBill()" class="genbtn" type="submit">Send IT!!</button>
+            </div>
 
 
-/* Product List styles */
-
-#product-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    width: 79%;
-    margin-top: 20px;
-    height: 590px;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: #000000 #7d7b7b;
-    /* Add horizontal scrollbar if needed */
-    /* Allow horizontal scrollbar to appear when needed */
-}
-
-.product-card {
-    background-color: #dddcdc;
-    border-radius: 8px;
-    padding: 20px;
-    width: 200px;
-    text-align: center;
-}
+        </div>
+    </div>
 
 
-/* Billing styles */
+    <script src="script.js"></script>
+</body>
 
-#bill-container {
-    background-color: #dddcdc;
-    box-shadow: 2px 2px 10px black;
-    border-radius: 8px;
-    padding: 20px;
-    width: 20%;
-    margin: 18px;
-}
-
-.cinfo label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.cinfo input,
-.cinfo textarea,
-.cinfo button {
-    margin-bottom: 10px;
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-}
-
-.bill h2 {
-    margin-bottom: 10px;
-}
-
-#bill-content {
-    margin-top: 10px;
-    padding-top: 10px;
-}
-
-.bill {
-    border-radius: 10px;
-    padding: 3px;
-    background-color: #ffffff;
-}
-
-.bcon {
-    font-weight: 700;
-    background-color: #c2c2c2;
-}
-
-.mtot {
-    font-size: 20px;
-    font-weight: 800px;
-}
-
-.btn {
-    margin-top: 20px;
-}
-
-.genbtn {
-    background-color: #4caf50;
-    font-size: 15px;
-    color: white;
-    width: 49%;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.menu {
-    margin-top: -18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.menu img {
-    display: none;
-    height: 20px;
-    width: 25px;
-}
-
-input[type="number"] {
-    width: 100px;
-    /* Set a specific width */
-    height: 25px;
-    padding: 8px;
-    /* Add padding for better appearance */
-    font-size: 16px;
-    /* Adjust font size */
-    border: 1px solid #ccc;
-    /* Add a border */
-    border-radius: 4px;
-    /* Add border-radius for rounded corners */
-    box-sizing: border-box;
-    /* Include padding and border in the total width */
-}
-
-
-/* Optional: Style the increment and decrement buttons (for browsers that support) */
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    /* Remove default appearance */
-    margin: 0;
-    /* Remove default margin */
-}
-
-input[type="number"] {
-    -moz-appearance: textfield;
-    /* Firefox */
-}
-
-
-/* Responsive styles */
-
-@media screen and (max-width: 600px) {
-    body {
-        align-items: stretch;
-        /* Adjust alignment for smaller screens */
-    }
-    #nav {
-        height: 100px;
-        width: 100%;
-        /* Make the navigation bar full-width on small screens */
-    }
-    #product-list-container {
-        flex-direction: column;
-        /* Stack products vertically on small screens */
-        align-items: center;
-        /* Center products on small screens */
-    }
-    #product-list {
-        width: 100%;
-        /* Make the product list full-width on small screens */
-        margin-top: 10px;
-        /* Adjust margin for smaller screens */
-    }
-    .product-card {
-        width: 70%;
-        /* Adjust product card width for smaller screens */
-        margin-bottom: 10px;
-        /* Add spacing between product cards */
-    }
-    #bill-container {
-        width: 85%;
-        /* Make the billing container full-width on small screens */
-        margin: 10px;
-        margin-left: 11px;
-        margin-top: -40px;
-        /* Adjust margin for smaller screens */
-    }
-    .cinfo input,
-    .cinfo textarea,
-    .cinfo button {
-        width: calc(100% - 16px);
-        /* Adjust input and button width for smaller screens */
-    }
-    .menu img {
-        display: block;
-    }
-    .cname {
-        letter-spacing: 6px;
-        font-size: 1rem;
-    }
-}
-
-#loading-container {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 9999;
-}
-
-#loading {
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #3498db;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-    margin: 0 auto;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
+</html>
