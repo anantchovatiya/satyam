@@ -256,6 +256,10 @@ input[type="number"] {
         letter-spacing: 6px;
         font-size: 1rem;
     }
+    .pimg {
+        width: 260px;
+        border-radius: 10px;
+    }
 }
 
 #loading-container {
