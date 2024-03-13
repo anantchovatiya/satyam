@@ -9,8 +9,8 @@ fetch(url)
 
 
         products = lines.filter(line => line.trim() !== '').map(line => {
-            const [id, name, price] = line.split(',');
-            return { id: parseInt(id), name, price: parseFloat(price) };
+            const [id, name, price, pimg] = line.split(',');
+            return { id: parseInt(id), name, price: parseFloat(price), pimg };
         });
 
         const productList = document.getElementById('product-list');
@@ -18,7 +18,8 @@ fetch(url)
             const card = document.createElement('div');
             card.className = 'product-card';
             card.innerHTML = `
-                <h3>${product.name}</h3>
+                <p class="pname">${product.name}<p>
+                <img src="${product.pimg}" class="pimg"></img>
                 <p>Price: $${product.price}</p>
                 <label for="quantity-${product.id}">Quantity:</label>
                 <input type="number" id="quantity-${product.id}" class="quantity-input" value="0">
