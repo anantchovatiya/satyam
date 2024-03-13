@@ -1,4 +1,4 @@
-1,Product 1,10
+1,Product 1,10,/product-images/demo.webp
 2,Product 2,20
 3,Product 3,30
 4,Product 4,30
