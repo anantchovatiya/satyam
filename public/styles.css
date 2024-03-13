@@ -240,7 +240,7 @@ input[type="number"] {
         /* Make the billing container full-width on small screens */
         margin: 10px;
         margin-left: 11px;
-        margin-top: -40px;
+        margin-top: 10px;
         /* Adjust margin for smaller screens */
     }
     .cinfo input,
