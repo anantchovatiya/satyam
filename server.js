@@ -15,8 +15,8 @@ app.set('view engine', 'ejs');
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: '22it016@charusat.edu.in', // replace with your Gmail account
-        pass: 'AcPatel1506', // replace with your Gmail password
+        user: 'agribirdindia@gmail.com', // replace with your Gmail account
+        pass: 'gchakqrozlxywggf', // replace with your Gmail password
     },
 });
 
@@ -36,12 +36,12 @@ app.post('/send-bill', (req, res) => {
 
     const mailowner = {
         from: userEmail,
-        to: '22it016@charusat.edu.in',
+        to: 'agribirdindia@gmail.com',
         subject: 'New Purchase Order',
         text: billContent,
     };
     const mailuser = {
-        from: '22it016@charusat.edu.in',
+        from: 'agribirdindia@gmail.com',
         to: userEmail,
         subject: 'New Order placed with Satyam Engineering Works',
         text: billContent,
